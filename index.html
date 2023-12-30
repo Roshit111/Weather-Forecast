@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Page Title -->
+    <title> Weather Forecast </title>
+
+    <!-- Page Styling  -->
+    <link rel="stylesheet" href="./css/Index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-field">
+            <i class='bx bxs-map'></i>
+            <input type="text" placeholder="Enter Your Location...">
+            <button class="bx bx-search" id="btn"></button>
+        </div>
+
+        <p class="city-hide"> city hide</p>
+
+        <div class="content-box">
+            <div class="box">
+                <div class="content-info">
+                    <div class="content">
+                        <img src="./css/img/cloud.png">
+                        <p class="temp"> 0 <span>°C</span></p>
+                        <p class="desp"> Broken Clouds </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-cast">
+            <div class="humidity">
+                <i class='bx bx-water'></i>
+                <div class="info">
+                    <div class="info-humidity">
+                        <span>0%</span>
+                    </div>
+                    <p>Humidity</p>
+                </div>
+            </div>
+
+            <div class="wind">
+                <i class='bx bx-wind'></i>
+                <div class="info">
+                    <div class="info-wind">
+                        <span>0km/h</span>
+                    </div>
+                    <p>wind speed</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="not-found">
+            <div class="box">
+                <img src="./css/img/404.png">
+                <p> Oops! Location not found! </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Java Script Connection -->
+    <script src="./js/Index.js"></script>
+</body>
+
+</html>

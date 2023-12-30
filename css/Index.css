@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif
+}
+
+body {
+    display: flex;
+    color: #fff;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: url("./img/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, .1);
+    border: rgba(255, 255, 255, .2);
+    transition: height .6s ease;
+}
+
+.input-field {
+    position: relative;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.input-field i {
+    position: absolute;
+    left: 10px;
+    font-size: 28px;
+}
+
+.input-field input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    outline: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 48px 0 42px;
+    background: transparent;
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, .2);
+}
+
+.input-field input::placeholder {
+    color: #fff;
+
+}
+
+.input-field button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    color: #fff;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 40px 0 5px;
+}
+
+.content-box {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.content-box img {
+    width: 60%;
+}
+
+.content-box .temp {
+    position: relative;
+    line-height: 1;
+    font-size: 64px;
+    font-weight: 600;
+    margin: 20px 0 6px -30px;
+}
+
+.content-box,
+.weather-cast,
+.not-found {
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.content-box.active,
+.weather-cast.active,
+.not-found.active {
+    visibility: visible;
+}
+
+.content-box .box,
+.not-found .box {
+    transform: translateY(-100%);
+}
+
+.content-box.active .box,
+.not-found.active .box {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .6s;
+}
+
+.content-box .box .content-info {
+    transform: translateY(-120%);
+}
+
+.container.active .content-box .box .content-info,
+.container.active .weather-cast.active .humidity .info-humidity,
+.container.active .weather-cast.active .wind .info-wind {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+}
+
+.content-box .temp span {
+    position: absolute;
+    margin-left: 4px;
+    font-size: 22px;
+}
+
+.content-box .desp {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.weather-cast {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+}
+
+.weather-cast .humidity,
+.weather-cast .wind {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-100%);
+}
+
+.weather-cast.active .humidity,
+.weather-cast.active .wind {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: 1.2s;
+}
+
+.weather-cast.active .humidity .info-humidity,
+.weather-cast.active .wind .info-wind {
+    overflow: hidden;
+    transform: translateY(-120%);
+
+}
+
+.weather-cast .humidity {
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.weather-cast .wind {
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+.weather-cast i {
+    font-size: 56px;
+    margin-right: 10px;
+}
+
+.weather-cast span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.weather-cast p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.not-found {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 110px;
+    text-align: center;
+}
+
+.not-found img {
+    width: 65%;
+}
+
+.not-found p {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.city-hide {
+    display: none;
+}
+
+#clone-content-info,
+#clone-info-humidity,
+#clone-info-wind {
+    position: absolute;
+    transform: translateY(-100%);
+}
+
+#clone-content-info .content {
+    transform: translateY(120%);
+    transition: transform 1s ease, opacity 0s;
+    transition-delay: 0s, 2s;
+}
+
+.content-box:not(.active) #clone-content-info .content {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.active-clone#clone-content-info .content {
+    transform: translateY(0%);
+}
+
+#clone-info-humidity span,
+#clone-info-wind span {
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+
+.active-clone#clone-info-humidity span,
+.active-clone#clone-info-wind span {
+    transform: translateY(0%);
+}
